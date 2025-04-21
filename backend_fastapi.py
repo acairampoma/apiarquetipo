@@ -1,8 +1,21 @@
-from fastapi import FastAPI, UploadFile, File, Form
+from fastapi import FastAPI, File, Form, UploadFile
 from fastapi.responses import StreamingResponse
-import requests, zipfile, io
+from fastapi.middleware.cors import CORSMiddleware
+import requests
+import zipfile
+import io
+import os
 
 app = FastAPI()
+
+# CORS middleware para permitir peticiones desde cualquier origen (desarrollo)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.post("/generar")
 async def generar(arquetipo: str = Form(...), contrato: UploadFile = File(...)):
