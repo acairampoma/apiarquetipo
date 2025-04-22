@@ -1,0 +1,19 @@
+# Ignora archivos de entorno y configuración local
+.env
+*.env
+# Ignora carpetas de entorno virtual de Python
+venv/
+ENV/
+.venv/
+# Ignora archivos temporales de Python
+__pycache__/
+*.pyc
+*.pyo
+# Ignora archivos de logs
+*.log
+# Ignora archivos de sistema
+.DS_Store
+Thumbs.db
+# Ignora archivos de configuración de IDE
+.vscode/
+.idea/
